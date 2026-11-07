@@ -16,7 +16,7 @@ header{position:fixed;z-index:50;top:0;left:0;right:0;display:flex;justify-conte
 .logo{font:700 1.5rem 'Fraunces',serif;text-decoration:none;color:var(--ink)}.logo span{font:500 1.1rem 'Reem Kufi';margin-left:.6rem;color:var(--brown)}
 header nav a{margin-left:1.8rem;text-decoration:none;font-weight:500;font-size:.92rem;color:var(--ink)}
 /* viewer */
-.v{position:relative;display:grid;grid-template-columns:1fr 1.1fr .8fr;gap:2vw;align-items:center;min-height:100vh;padding:110px 4vw 160px;overflow:hidden;background:#f7d774;transition:background-color .9s}
+.v{position:relative;display:grid;grid-template-columns:1fr 1.1fr .8fr;gap:2vw;align-items:center;min-height:100vh;padding:110px 4vw 180px;overflow:hidden;background:#f7d774;transition:background-color .9s}
 .ghost{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);font:700 34vw/1 'Reem Kufi';color:#ffffff59;white-space:nowrap;pointer-events:none}
 .v>*{position:relative}.v>.ghost{position:absolute}
 .a{animation:ri .9s cubic-bezier(.2,.9,.2,1) both;animation-delay:calc(var(--d,0)*.08s)}
@@ -49,23 +49,118 @@ h2{font-size:clamp(2.4rem,5vw,4.4rem);font-weight:600;line-height:1}
 .cap{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;justify-content:center;margin-top:1rem;font-size:.88rem;opacity:.8}
 .ct{background:#f7d774;border-radius:32px;padding:2.4rem 3rem;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap}.ct h2{font-size:clamp(2rem,4vw,3.2rem)}
 footer{padding:2rem 4vw calc(2rem + env(safe-area-inset-bottom,0px));display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.85rem;border-top:1px solid #2b18101f}
-@media (max-width:860px){header nav a{display:none}.v{grid-template-columns:1fr;gap:1rem;padding:84px 6vw 130px}.vi{order:-1}#im{max-height:30vh;max-width:70vw}.vs,.arr{display:none}.ghost{font-size:62vw;top:30%}.vt h1{font-size:3.6rem}.tab span{display:none}.tab{justify-content:center;padding:.5rem}.dtl{grid-template-columns:1fr}.dtl dl div{grid-template-columns:1fr;gap:.1rem}.ct{padding:1.8rem}}
+@media (max-width:860px){header nav a{display:none}.v{grid-template-columns:1fr;gap:1rem;padding:84px 6vw 140px}.vi{order:-1}#im{max-height:30vh;max-width:70vw}.vs,.arr{display:none}.ghost{font-size:62vw;top:30%}.vt h1{font-size:3.6rem}.tab span{display:none}.tab{justify-content:center;padding:.5rem}.dtl{grid-template-columns:1fr}.dtl dl div{grid-template-columns:1fr;gap:.1rem}.ct{padding:1.8rem}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+/* Enquiry selection: rounded controls inspired by the existing pill buttons. */
+.order-select{max-width:30rem;margin:1rem 0 1.35rem}
+.order-select label,.card-order label{display:block;font-size:.79rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;margin-bottom:.48rem}
+.order-controls{display:flex;align-items:stretch;gap:.7rem;flex-wrap:wrap}
+.order-controls select,.card-order select{appearance:none;-webkit-appearance:none;border:1px solid #2b18104a;border-radius:999px;padding:.87rem 2.7rem .87rem 1.15rem;background-color:#fffaf2e0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%232b1810' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:calc(100% - 16px) center;color:#2b1810;font:600 .94rem 'Figtree',sans-serif;min-width:150px;cursor:pointer}
+.order-controls select:focus-visible,.card-order select:focus-visible,.btn:focus-visible{outline:3px solid #7a3b1d;outline-offset:3px}
+.order-select .btn{border:0;display:inline-flex;align-items:center;justify-content:center;gap:.6rem;text-align:center;flex:1;white-space:nowrap}
+.order-hint{display:block;font-size:.78rem;margin-top:.65rem;opacity:.74;line-height:1.4}
+.whatsapp-icon{display:inline-flex;align-items:center;justify-content:center;width:21px;height:21px;flex-shrink:0}
+.whatsapp-icon svg{width:100%;height:100%}
+.product-section{padding-top:85px}
+.product-section .intro{max-width:650px;color:#65462f;margin-top:1rem}
+.product-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem;margin-top:2.4rem}
+.product-card{background:#fffdf8;border:1px solid #2b18101a;border-radius:32px;box-shadow:0 13px 35px #2b18100c;padding:1.1rem;display:flex;flex-direction:column;min-width:0;transition:transform .3s ease,box-shadow .3s ease}
+.product-card:hover{transform:translateY(-4px);box-shadow:0 18px 45px #2b18101c}
+.product-card .card-image{height:205px;border-radius:25px;background:radial-gradient(circle at 50% 45%,#fff8e0 0%,#f4e8d6 70%);display:grid;place-items:center;overflow:hidden;padding:12px}
+.product-card .card-image img{height:100%;max-width:100%;width:auto;object-fit:contain;filter:drop-shadow(0 12px 16px #2b18102a)}
+.product-card .card-copy{padding:.8rem .45rem .3rem;display:flex;flex:1;flex-direction:column}
+.product-card .card-title{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:.35rem}
+.product-card h3{font-size:clamp(1.7rem,3vw,2.15rem);font-weight:600;margin:0}
+.product-card .card-ar{font:500 1.1rem 'Reem Kufi','Noto Sans Arabic',sans-serif;color:var(--brown)}
+.product-card .card-origin{font-size:.8rem;opacity:.65;line-height:1.5}
+.product-card .card-note{font-size:.93rem;opacity:.84;margin-top:.8rem;line-height:1.5;margin-bottom:1.35rem}
+.card-order{margin-top:auto}
+.card-order select{width:100%;margin-bottom:.7rem}
+.card-order .btn{display:flex;align-items:center;justify-content:center;gap:.6rem;width:100%;padding:.87rem 1rem;text-align:center;font-size:.91rem}
+.product-footnote{font-size:.83rem;opacity:.68;margin-top:1rem}
+@media(max-width:860px){.product-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.vt .order-controls{max-width:490px}}
+@media(max-width:550px){.product-cards{grid-template-columns:1fr}.order-controls{flex-direction:column;align-items:stretch}.order-controls select{width:100%}.vt .order-select{max-width:100%}.product-card .card-image{height:230px}}
+
+/* RIMOKU signature dropdown — replaces platform-native option popups. */
+.lux-select{position:relative;min-width:0;isolation:isolate}
+.order-controls .lux-select{flex:0 0 194px;max-width:100%}
+.card-order .lux-select{width:100%;margin-bottom:.78rem}
+.lux-select .lux-original-select{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:0!important;border:0!important;opacity:0!important;overflow:hidden!important;clip-path:inset(50%);pointer-events:none;white-space:nowrap}
+.lux-select-trigger{appearance:none;-webkit-appearance:none;display:flex;align-items:center;gap:11px;width:100%;min-height:57px;border-radius:19px;padding:8px 11px 8px 12px;border:1px solid #a4773760;background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(255,249,236,.94));color:#2b1810;text-align:left;font-family:'Figtree',system-ui,sans-serif;box-shadow:0 4px 12px rgba(74,39,13,.06),inset 0 1px rgba(255,255,255,.8);transition:background .2s ease,border-color .2s ease,box-shadow .2s ease,transform .2s ease;cursor:pointer}
+.lux-select-trigger:hover{border-color:#9d6938;box-shadow:0 9px 24px rgba(74,39,13,.11)}
+.lux-select-trigger[aria-expanded=true]{border-color:#86511f;box-shadow:0 0 0 4px rgba(122,59,29,.12),0 14px 28px rgba(74,39,13,.15)}
+.lux-select-trigger:focus-visible{outline:3px solid #7a3b1d;outline-offset:3px}
+.lux-select-icon{width:36px;height:36px;flex:none;display:grid;place-items:center;background:#f5e9d5;color:#86531f;border-radius:12px;border:1px solid #e9d8bc}
+.lux-select-icon svg{width:19px;height:19px;stroke-width:1.7}
+.lux-select-text{display:flex;flex-direction:column;gap:1px;flex:1;min-width:0}
+.lux-select-caption{color:#8f7653;font-size:.61rem;text-transform:uppercase;letter-spacing:.105em;line-height:1.3;font-weight:700}
+.lux-select-value{font-size:.94rem;line-height:1.35;font-weight:700;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lux-select-arrow{height:27px;width:27px;flex:none;display:grid;place-items:center;border-radius:50%;background:#f1e5cf;color:#805228;transition:transform .22s ease,background .22s ease}
+.lux-select-trigger[aria-expanded=true] .lux-select-arrow{transform:rotate(180deg);background:#e5cc9c}
+.lux-select-arrow svg{width:16px;height:16px;stroke-width:2.2}
+.lux-select-menu{position:fixed;z-index:9999;min-width:200px;box-sizing:border-box;padding:9px;border:1px solid rgba(158,105,48,.28);border-radius:23px;background:rgba(255,251,243,.98);box-shadow:0 20px 56px rgba(54,28,7,.21),0 2px 9px rgba(84,55,19,.05);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);animation:lux-in .18s cubic-bezier(.18,.85,.25,1) both;overflow:hidden}
+.lux-select-menu[hidden]{display:none!important}
+.lux-select-menu .lux-menu-heading{font-size:.66rem;color:#9d7950;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:8px 12px 10px}
+.lux-option{display:flex;align-items:center;justify-content:space-between;gap:13px;width:100%;min-height:47px;border:1px solid transparent;background:transparent;color:#49301d;border-radius:15px;text-align:left;padding:10px 12px;outline:0;transition:background .15s,color .15s;font-family:'Figtree',sans-serif;font-size:.91rem;font-weight:600}
+.lux-option+.lux-option{margin-top:3px}
+.lux-option:hover,.lux-option:focus-visible,.lux-option.active{background:#f4e8d2}
+.lux-option[aria-selected=true]{background:#ead4ac;color:#603718}
+.lux-option[aria-selected=true].active,.lux-option[aria-selected=true]:hover{background:#e4c48a}
+.lux-option .lux-option-check{width:25px;height:25px;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(128,79,34,.22);color:#9b774f;flex:none}
+.lux-option[aria-selected=true] .lux-option-check{background:#805024;color:white;border-color:#805024}
+.lux-option-check svg{width:14px;height:14px;stroke-width:2.5;opacity:0}
+.lux-option[aria-selected=true] .lux-option-check svg{opacity:1}
+@keyframes lux-in{from{opacity:0;transform:translateY(-5px) scale(.982)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:550px){.order-controls .lux-select{flex:auto;width:100%;max-width:none}.lux-select-trigger{min-height:59px}.lux-select-menu{max-width:calc(100vw - 20px)}}
+@media(prefers-reduced-motion:reduce){.lux-select-menu{animation:none}.lux-select-trigger,.lux-option,.lux-select-arrow{transition:none}}
+
+
+/* Selected pack details follow the active size without changing the carousel layout. */
+.vs .pack-note{max-width:280px;margin:.95rem 0 0 auto;font-size:.74rem;line-height:1.55;opacity:.75;text-align:right}
+.mobile-pack-spec{display:none;margin:.9rem 0 0;padding:1rem 1.15rem;background:#fffaf28c;border:1px solid #2b181022;border-radius:19px;color:var(--ink)}
+.mobile-pack-spec span{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.66;margin-bottom:.2rem}
+.mobile-pack-spec strong{font-size:.98rem}
+.card-pack-spec{font-size:.82rem;color:#684a33;line-height:1.45;margin:-.15rem 0 .8rem}
+.card-pack-spec strong{font-weight:700;color:#2b1810}
+@media (max-width:860px){.mobile-pack-spec{display:block}}
 </style></head><body>
-<header><a class="logo" href="#top">Rimoku<span class="ar">ريموكو</span></a><nav><a href="#details">Details</a><a href="#sizes">Sizes</a><a href="#contact">Wholesale</a></nav></header>
+<header><a class="logo" href="#top">Rimoku<span class="ar">ريموكو</span></a><nav><a href="#products">Products</a><a href="#details">Details</a><a href="#sizes">Sizes</a><a href="#contact">Wholesale</a></nav></header>
 <main id="top">
 <div class="v" id="v">
  
- <div class="vt"><div class="no a" id="no"></div><h1 class="a" id="nm" style="--d:1"></h1><p class="a" id="ds" style="--d:2"></p><div class="chips a" id="ch" style="--d:3"></div><a class="btn a" href="#contact" id="bt" style="--d:4"></a></div>
+ <div class="vt"><div class="no a" id="no"></div><h1 class="a" id="nm" style="--d:1"></h1><p class="a" id="ds" style="--d:2"></p><div class="chips a" id="ch" style="--d:3"></div>
+  <div class="order-select a" style="--d:4">
+    <label for="weight-select">Select quantity</label>
+    <div class="order-controls">
+      <select id="weight-select" aria-label="Choose weight for the selected date variety">
+        <option value="500 grams">500 grams</option>
+        <option value="1 kg">1 kg</option>
+        <option value="3 kg">3 kg</option>
+        <option value="5 kg">5 kg</option>
+        <option value="10 kg">10 kg</option>
+      </select>
+      <a class="btn" id="bt" href="https://wa.me/447553609832" target="_blank" rel="noopener noreferrer">Order on WhatsApp</a>
+    </div>
+    <small class="order-hint">Select your preferred weight; availability and packaging can be confirmed on WhatsApp.</small>
+    <div class="mobile-pack-spec" id="mobile-pack-spec" aria-live="polite"><span>Selected pack dimensions</span><strong id="mobile-pack-dims"></strong></div>
+  </div></div>
  <div class="vi"><img id="im" alt=""></div>
- <div class="vs"><div class="w a" id="wt"></div><div class="u a" id="un" style="--d:1"></div><dl class="a" style="--d:2"><div><dt>Pack</dt><dd id="pk"></dd></div><div><dt>Origin</dt><dd>Al Madinah, KSA</dd></div><div><dt>Ingredients</dt><dd>100% whole dates</dd></div></dl></div>
+ <div class="vs" aria-label="Selected packaging details"><div class="w a" id="wt"></div><div class="u a" id="un" style="--d:1"></div><dl class="a" style="--d:2"><div><dt>Pack</dt><dd id="pk" aria-live="polite"></dd></div><div><dt>Origin</dt><dd>Al Madinah, KSA</dd></div><div><dt>Ingredients</dt><dd>100% whole dates</dd></div></dl><p class="pack-note" id="pack-note" aria-live="polite"></p></div>
  <div class="arr"><button id="pv" aria-label="Previous">←</button><button id="nx" aria-label="Next">→</button></div>
  <div class="tabs" id="tabs"></div>
 </div>
+<section id="products" class="product-section">
+  <div class="rv"><div class="lab">All products · choose your quantity</div>
+  <h2>Choose your dates.<br>Send an enquiry.</h2>
+  <p class="intro">Select 500 grams, 1 kg, 3 kg, 5 kg, or 10 kg under any variety, then tap the WhatsApp button to send its name and your selected pack weight.</p></div>
+  <div class="product-cards" id="product-cards" aria-label="All five dates with ordering options"></div>
+  <p class="product-footnote">Requested weights are enquiry options; availability is subject to confirmation. The original brochure lists a specific pack size for each variety.</p>
+</section>
 <section id="details"><div class="dtl"><img class="rv" data-img="hero" alt="The Rimoku range"><div class="rv"><div class="lab">Product details</div><h2>Simply dates, nothing else.</h2>
  <dl><div><dt>Ingredients</dt><dd>Dates (100%). Whole dates, contain stones.</dd></div><div><dt>Storage</dt><dd>Store in a cool, dry place.</dd></div><div><dt>Origin</dt><dd>Al Madinah, Saudi Arabia.</dd></div><div><dt>Imported by</dt><dd>Rimoku Ltd, [UK POSTAL ADDRESS], United Kingdom.</dd></div></dl></div></div></section>
 <section id="sizes" style="padding-top:0"><div class="rv"><div class="lab">Sizes</div><h2>Five varieties, five sizes.</h2></div><div class="sz rv"><img data-img="range" alt="Range shown to scale"><div class="cap"><span>Sukkari 500g</span><span>Ajwa 2 kg</span><span>Mabroom 3 kg</span><span>Safawi 5 kg</span><span>Medjool 10 kg</span></div></div></section>
-<section id="contact" style="padding-top:0"><div class="ct rv"><div><h2>Stock Rimoku.</h2><p>Retail and wholesale enquiries welcome.</p></div><a class="btn" href="mailto:hello@rimoku.co.uk">Get in touch</a></div></section>
+<section id="contact" style="padding-top:0"><div class="ct rv"><div><h2>Stock Rimoku.</h2><p>Retail and wholesale enquiries welcome.</p></div><a class="btn" id="contact-wa" href="https://wa.me/447553609832" target="_blank" rel="noopener noreferrer">Enquire on WhatsApp</a></div></section>
 </main>
 <footer><span>Imported by Rimoku Ltd, [UK POSTAL ADDRESS], United Kingdom.</span><span>Product of Saudi Arabia · <span class="ar" style="font-family:'Noto Sans Arabic'">منتج المملكة العربية السعودية</span></span></footer>
 <script>
@@ -76,25 +171,245 @@ const P=[
 {k:'mabroom',en:'Mabroom',ar:'مبروم',c:'#f4b97c',n:'3',u:'kg carton',box:'33 × 23 × 7 cm',d:'Long, chewy and caramel toned, with a gentle sweetness.'},
 {k:'safawi',en:'Safawi',ar:'صفاوي',c:'#d9b8d0',n:'5',u:'kg carton',box:'40 × 30 × 8 cm',d:'Dark, soft and fruity, a favourite across Al Madinah’s groves.'},
 {k:'medjool',en:'Medjool',ar:'مجدول',c:'#e9c58f',n:'10',u:'kg carton',box:'50 × 33 × 12 cm',d:'Plump, luscious and meltingly soft. The king of dates.'}];
+// Set your business WhatsApp number here: digits ONLY, with country code (no +, spaces or dashes).
+// WhatsApp number provided in the original code, in international digits-only format.
+const WHATSAPP_NUMBER = '447553609832';
+// Indicative pack dimensions and packaging notes supplied for the new selections.
+// These are format specifications, not a claim that each variety is available in every size.
+const PACK_SPECS = {
+  '500 grams': {
+    number: '500', unit: 'g tub', dimensions: '18 × 12.5 × 5.5 cm*',
+    note: 'Fits the 120 × 170 mm lid label. Saudi 500 g tubs ship 12 to an outer case of 38 × 25.5 × 16 cm.'
+  },
+  '1 kg': {
+    number: '1', unit: 'kg carton', dimensions: '22 × 14 × 5 cm',
+    note: 'Standard Saudi 1 kg date carton. Other suppliers also list 22 × 14 × 4.5 cm.'
+  },
+  '3 kg': {
+    number: '3', unit: 'kg carton', dimensions: '37 × 23 × 8 cm*',
+    note: 'Estimated from Saudi Sukkari and Ajwa outer cases holding four 3 kg cartons (47.5 × 38 × 16.5 cm).'
+  },
+  '5 kg': {
+    number: '5', unit: 'kg carton', dimensions: '40 × 29 × 8.5 cm',
+    note: 'Al Madinah Ajwa 5 kg reference: 40.5 × 28.5 × 8 cm; a Jordan exporter lists 41 × 31.5 × 8.5 cm.'
+  },
+  '10 kg': {
+    number: '10', unit: 'kg carton', dimensions: '46 × 33 × 12 cm',
+    note: 'Saudi Khalas 10 kg reference: 47 × 34 × 11.5 cm; Madinah Rabee reference: 41.5 × 32 × 11.5 cm.'
+  }
+};
+const quantityChoices = Object.keys(PACK_SPECS);
+function updateSelectedPackDetails() {
+  const selected = document.querySelector('#weight-select').value;
+  const pack = PACK_SPECS[selected];
+  if (!pack) return;
+  document.querySelector('#wt').textContent = pack.number;
+  document.querySelector('#un').textContent = pack.unit;
+  document.querySelector('#pk').textContent = pack.dimensions;
+  document.querySelector('#pack-note').textContent = pack.note + ' *Indicative sizes; confirm with the supplier.';
+  document.querySelector('#mobile-pack-dims').textContent = pack.dimensions;
+  document.querySelector('#ch').innerHTML = `<span>Selected pack: ${selected}</span><span>Al Madinah, KSA</span>`;
+  refreshHeroWhatsApp();
+}
+const waIcon = `<span class="whatsapp-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.88 11.88 0 0 0 12.06 0C5.48 0 .12 5.34.11 11.91a11.89 11.89 0 0 0 1.58 5.93L0 24l6.32-1.66a11.92 11.92 0 0 0 5.69 1.45h.01c6.58 0 11.94-5.35 11.95-11.92a11.87 11.87 0 0 0-3.45-8.39zM12.02 21.78c-1.74 0-3.44-.47-4.93-1.35l-.35-.21-3.76.99.99-3.66-.23-.37a9.89 9.89 0 0 1-1.52-5.27C2.23 6.45 6.59 2.1 12.06 2.1a9.73 9.73 0 0 1 6.94 2.88 9.72 9.72 0 0 1 2.86 6.94c-.01 5.45-4.37 9.86-9.84 9.86zm5.41-7.39c-.29-.15-1.73-.86-2-.96-.27-.1-.46-.15-.66.15-.19.29-.75.96-.92 1.15-.17.2-.34.22-.63.08-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.48-1.75-1.65-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.34.44-.51.15-.17.2-.3.3-.49.1-.2.05-.37-.02-.52-.08-.14-.66-1.59-.9-2.18-.24-.57-.48-.49-.66-.5h-.56c-.2 0-.52.07-.79.37-.27.29-1.03 1.01-1.03 2.45s1.05 2.84 1.2 3.03c.15.2 2.06 3.14 4.99 4.41.7.3 1.24.48 1.67.61.7.22 1.34.19 1.85.12.56-.08 1.73-.71 1.97-1.39.25-.68.25-1.26.17-1.38-.07-.12-.27-.19-.56-.34z"/></svg></span>`;
+function whatsappLink(variety, qty) {
+  const text = `Hello RIMOKU! I'd like to enquire about your dates.\n\nDate variety: ${variety}\nQuantity: ${qty}\n\nPlease confirm availability and price. Thank you!`;
+  const number = WHATSAPP_NUMBER.replace(/\D/g,'');
+  return `https://wa.me/${number ? number : ''}?text=${encodeURIComponent(text)}`;
+}
+function refreshHeroWhatsApp() {
+  const p = P[cur];
+  const qty = document.querySelector('#weight-select').value;
+  const a = document.querySelector('#bt');
+  a.href = whatsappLink(p.en, qty);
+  a.setAttribute('aria-label',`Enquire on WhatsApp about ${p.en} dates, ${qty}`);
+}
+
+function renderProductCards() {
+  const target = document.querySelector('#product-cards');
+  target.innerHTML=P.map((p,i)=>`<article class="product-card rv" data-variety="${p.en}">
+    <div class="card-image"><img loading="lazy" src="${IMG[p.k]}" alt="${p.en} dates"></div>
+    <div class="card-copy"><div class="card-title"><h3>${p.en}</h3><span class="card-ar" lang="ar" dir="rtl">${p.ar}</span></div>
+    <p class="card-origin">Grown in Al Madinah, Saudi Arabia</p>
+    <p class="card-note">${p.d}</p>
+    <div class="card-order"><label for="qty-${p.k}">Quantity</label>
+      <select id="qty-${p.k}" class="card-quantity" aria-label="Select quantity for ${p.en}">
+        ${quantityChoices.map(q=>`<option value="${q}">${q}</option>`).join('')}
+      </select>
+      <p class="card-pack-spec" aria-live="polite">Pack dimensions: <strong>${PACK_SPECS[quantityChoices[0]].dimensions}</strong></p>
+      <a class="btn card-whatsapp" href="${whatsappLink(p.en,quantityChoices[0])}" rel="noopener noreferrer" target="_blank">${waIcon} Order on WhatsApp</a>
+    </div></div>
+  </article>`).join('');
+  target.querySelectorAll('.product-card').forEach(card=>{
+    const qty=card.querySelector('.card-quantity');
+    const link=card.querySelector('.card-whatsapp');
+    qty.addEventListener('change',()=>{
+      link.href=whatsappLink(card.dataset.variety,qty.value);
+      link.setAttribute('aria-label',`Order ${card.dataset.variety}, ${qty.value} on WhatsApp`);
+      card.querySelector('.card-pack-spec strong').textContent = PACK_SPECS[qty.value].dimensions;
+    });
+  });
+}
 const $=s=>document.querySelector(s),v=$('#v');
 document.querySelectorAll('[data-img]').forEach(i=>i.src=IMG[i.dataset.img]);
-$('#tabs').innerHTML=P.map((p,i)=>`<button class="tab" data-i="${i}"><img src="${IMG[p.k]}" alt=""><span>${p.en}<small>${p.n}${p.u.split(' ')[0]}</small></span><i class="pg"></i></button>`).join('');
+$('#tabs').innerHTML=P.map((p,i)=>`<button class="tab" data-i="${i}" aria-label="Show ${p.en} dates"><img src="${IMG[p.k]}" alt=""><span>${p.en}<small>${p.n}${p.u.split(' ')[0]}</small></span><i class="pg"></i></button>`).join('');
 const tabs=[...document.querySelectorAll('.tab')];let cur=0;
 const re=el=>{el.classList.remove('a');void el.offsetWidth;el.classList.add('a')};
 function show(i){cur=(i+P.length)%P.length;const p=P[cur];
  v.style.backgroundColor=p.c;
  $('#no').textContent=`0${cur+1} / 0${P.length}`;$('#nm').textContent=p.en;$('#ds').textContent=p.d;
- $('#ch').innerHTML=`<span>${p.n}${p.u}</span><span>${p.box}</span><span>Al Madinah, KSA</span>`;$('#bt').textContent=`Enquire about ${p.en}`;
- $('#wt').textContent=p.n;$('#un').textContent=p.u;$('#pk').textContent=p.box;
+  updateSelectedPackDetails();
  const im=$('#im');im.src=IMG[p.k];im.alt=p.en+' dates';im.style.animation='none';void im.offsetWidth;im.style.animation='';
  v.querySelectorAll('.a').forEach(re);
  tabs.forEach((t,j)=>{t.classList.remove('on');if(j===cur){void t.offsetWidth;t.classList.add('on')}})}
 tabs.forEach(t=>{t.onclick=()=>show(+t.dataset.i);t.querySelector('.pg').addEventListener('animationend',()=>show(cur+1))});
 $('#pv').onclick=()=>show(cur-1);$('#nx').onclick=()=>show(cur+1);
-addEventListener('keydown',e=>{if(e.key==='ArrowRight')show(cur+1);if(e.key==='ArrowLeft')show(cur-1)});
-v.onmouseenter=()=>v.classList.add('pause');v.onmouseleave=()=>v.classList.remove('pause');
+addEventListener('keydown',e=>{if(e.target.closest('input,select,textarea,button,[contenteditable]'))return;if(e.key==='ArrowRight')show(cur+1);if(e.key==='ArrowLeft')show(cur-1)});
+v.onmouseenter=()=>v.classList.add('pause');v.onmouseleave=()=>{if(!v.contains(document.activeElement))v.classList.remove('pause')};v.addEventListener('focusin',()=>v.classList.add('pause'));v.addEventListener('focusout',()=>{requestAnimationFrame(()=>{if(!v.contains(document.activeElement))v.classList.remove('pause')})});
 let sx=0;v.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});v.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50)show(cur+(d<0?1:-1))});
+document.querySelector('#weight-select').addEventListener('change',updateSelectedPackDetails);
+renderProductCards();
+document.querySelector('#bt').innerHTML=waIcon + ' Enquire on WhatsApp';
+const contactWa=document.querySelector('#contact-wa');
+contactWa.href=whatsappLink('All varieties','500 grams, 1 kg, 3 kg, 5 kg, or 10 kg');
+contactWa.innerHTML=waIcon + ' Enquire on WhatsApp';
 show(0);
+
+// A fully styled, keyboard-accessible dropdown. The native <select> remains
+// the source of truth so the existing WhatsApp message logic stays unchanged.
+(function activateSignatureDropdowns(){
+  const cubeIcon=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.8 6.7 8.2-4.2 8.2 4.2v10.6L12 21.5l-8.2-4.2V6.7Z"/><path d="m3.8 6.7 8.2 4.5 8.2-4.5M12 11.2v10.3"/></svg>`;
+  const arrowIcon=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>`;
+  const checkIcon=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 5 5 10-10"/></svg>`;
+  const dropdowns=[];
+  let openDropdown=null;
+  const menu=document.createElement('div');
+  menu.className='lux-select-menu';
+  menu.id='rimoku-quantity-options';
+  menu.setAttribute('role','listbox');
+  menu.setAttribute('aria-label','Available quantity choices');
+  menu.hidden=true;
+  document.body.append(menu);
+  let activeIndex=0;
+
+  function closeMenu(restoreFocus=false){
+    if(!openDropdown)return;
+    const trigger=openDropdown.trigger;
+    menu.hidden=true;
+    menu.innerHTML='';
+    trigger.setAttribute('aria-expanded','false');
+    trigger.removeAttribute('aria-activedescendant');
+    openDropdown=null;
+    if(restoreFocus)trigger.focus({preventScroll:true});
+  }
+  function renderOptions(){
+    if(!openDropdown)return;
+    const {select, trigger}=openDropdown;
+    menu.innerHTML='<div class="lux-menu-heading">SELECT PACK WEIGHT</div>' + [...select.options].map((option,i)=>
+      `<button class="lux-option${i===activeIndex?' active':''}" role="option" type="button" id="rimoku-weight-option-${i}" aria-selected="${option.value===select.value}" data-index="${i}" tabindex="-1"><span>${option.textContent}</span><span class="lux-option-check">${checkIcon}</span></button>`
+    ).join('');
+    trigger.setAttribute('aria-activedescendant',`rimoku-weight-option-${activeIndex}`);
+  }
+  function positionMenu(){
+    if(!openDropdown)return;
+    const rect=openDropdown.trigger.getBoundingClientRect();
+    const width=Math.max(224,rect.width);
+    const boundedWidth=Math.min(window.innerWidth-24,width);
+    menu.style.width=boundedWidth+'px';
+    const left=Math.max(12,Math.min(rect.left,window.innerWidth-boundedWidth-12));
+    menu.style.left=left+'px';
+    // Measure the actual menu height so all five sizes fit on desktop and mobile.
+    const menuHeight=menu.getBoundingClientRect().height||223;
+    const below=window.innerHeight-rect.bottom;
+    const top=below>=menuHeight+13||below>=rect.top ? rect.bottom+9 : rect.top-menuHeight-9;
+    menu.style.top=Math.max(8,Math.min(window.innerHeight-menuHeight-8,top))+'px';
+  }
+  function openMenu(dropdown, focusOption=false){
+    if(openDropdown===dropdown){closeMenu();return;}
+    closeMenu();
+    openDropdown=dropdown;
+    activeIndex=Math.max(0,[...dropdown.select.options].findIndex(o=>o.value===dropdown.select.value));
+    dropdown.trigger.setAttribute('aria-expanded','true');
+    menu.hidden=false;
+    renderOptions();
+    positionMenu();
+    if(focusOption)menu.querySelectorAll('.lux-option')[activeIndex]?.focus({preventScroll:true});
+  }
+  function selectAt(index){
+    if(!openDropdown)return;
+    const dropdown=openDropdown;
+    dropdown.select.selectedIndex=index;
+    dropdown.select.dispatchEvent(new Event('change',{bubbles:true}));
+    dropdown.value.textContent=dropdown.select.options[index].textContent;
+    closeMenu(true);
+  }
+  function move(delta){
+    if(!openDropdown)return;
+    const count=openDropdown.select.options.length;
+    activeIndex=(activeIndex+delta+count)%count;
+    renderOptions();
+    menu.querySelectorAll('.lux-option')[activeIndex]?.focus({preventScroll:true});
+  }
+
+  document.querySelectorAll('#weight-select, .card-quantity').forEach(select=>{
+    const holder=document.createElement('div');
+    holder.className='lux-select';
+    select.parentNode.insertBefore(holder,select);
+    holder.append(select);
+    select.classList.add('lux-original-select');
+    select.tabIndex=-1;
+    select.setAttribute('aria-hidden','true');
+    const button=document.createElement('button');
+    button.type='button';
+    button.className='lux-select-trigger';
+    button.setAttribute('aria-haspopup','listbox');
+    button.setAttribute('aria-controls',menu.id);
+    button.setAttribute('aria-expanded','false');
+    const oldLabel=document.querySelector(`label[for="${select.id}"]`);
+    const variety=select.closest('[data-variety]')?.dataset.variety||'current date variety';
+    button.setAttribute('aria-label',`Choose quantity for ${variety}`);
+    // Labels associate with the visible trigger rather than hidden native select.
+    button.id=select.id+'-control';
+    if(oldLabel)oldLabel.htmlFor=button.id;
+    button.innerHTML=`<span class="lux-select-icon">${cubeIcon}</span><span class="lux-select-text"><span class="lux-select-caption">Selected weight</span><span class="lux-select-value"></span></span><span class="lux-select-arrow">${arrowIcon}</span>`;
+    const value=button.querySelector('.lux-select-value');
+    value.textContent=select.options[select.selectedIndex].textContent;
+    holder.append(button);
+    const dropdown={select,trigger:button,value};
+    dropdowns.push(dropdown);
+    button.addEventListener('click',()=>openMenu(dropdown));
+    button.addEventListener('keydown',e=>{
+      if(['ArrowDown','ArrowUp','Enter',' '].includes(e.key)){
+        e.preventDefault();
+        if(openDropdown!==dropdown){openMenu(dropdown,true)}
+        else if(e.key==='ArrowDown')move(1);
+        else if(e.key==='ArrowUp')move(-1);
+        else selectAt(activeIndex);
+      }else if(e.key==='Escape'&&openDropdown===dropdown){e.preventDefault();closeMenu(true)}
+    });
+    select.addEventListener('change',()=>{value.textContent=select.options[select.selectedIndex].textContent});
+  });
+  menu.addEventListener('click',e=>{
+    const option=e.target.closest('.lux-option');
+    if(option)selectAt(Number(option.dataset.index));
+  });
+  menu.addEventListener('keydown',e=>{
+    if(e.key==='ArrowDown'||e.key==='ArrowUp'){
+      e.preventDefault();move(e.key==='ArrowDown'?1:-1);
+    }else if(e.key==='Home'||e.key==='End'){
+      e.preventDefault();activeIndex=e.key==='Home'?0:openDropdown.select.options.length-1;renderOptions();menu.querySelectorAll('.lux-option')[activeIndex]?.focus({preventScroll:true});
+    }else if(e.key==='Enter'||e.key===' '){
+      e.preventDefault();selectAt(activeIndex);
+    }else if(e.key==='Escape'){e.preventDefault();closeMenu(true)}
+    else if(e.key==='Tab')closeMenu();
+  });
+  document.addEventListener('pointerdown',e=>{
+    if(openDropdown&&!openDropdown.trigger.contains(e.target)&&!menu.contains(e.target))closeMenu();
+  });
+  window.addEventListener('resize',()=>{if(openDropdown)positionMenu()});
+  window.addEventListener('scroll',()=>{if(openDropdown)closeMenu()},{passive:true,capture:true});
+})();
+
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.rv').forEach(e=>io.observe(e));
 </script></body></html>
