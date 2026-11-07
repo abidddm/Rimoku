@@ -159,7 +159,7 @@ footer{padding:2rem 4vw calc(2rem + env(safe-area-inset-bottom,0px));display:fle
 </section>
 <section id="details"><div class="dtl"><img class="rv" data-img="hero" alt="The Rimoku range"><div class="rv"><div class="lab">Product details</div><h2>Simply dates, nothing else.</h2>
  <dl><div><dt>Ingredients</dt><dd>Dates (100%). Whole dates, contain stones.</dd></div><div><dt>Storage</dt><dd>Store in a cool, dry place.</dd></div><div><dt>Origin</dt><dd>Al Madinah, Saudi Arabia.</dd></div><div><dt>Imported by</dt><dd>Rimoku Ltd,info@timoku.com United Kingdom.</dd></div></dl></div></div></section>
-<section id="sizes" style="padding-top:0"><div class="rv"><div class="lab">Sizes</div><h2>Five varieties, five sizes.</h2></div><div class="sz rv"><img data-img="range" alt="Range shown to scale"><div class="cap"><span>Sukkari 500g</span><span>Ajwa 2 kg</span><span>Mabroom 3 kg</span><span>Safawi 5 kg</span><span>Medjool 10 kg</span></div></div></section>
+<section id="sizes" style="padding-top:0"><div class="rv"><div class="lab">Sizes</div><h2>Five varieties, five sizes.</h2></div><div class="sz rv"><img data-img="range" alt="Range shown to scale"><div class="cap"><span>Sukkari</span><span>Ajwa</span><span>Mabroom</span><span>Safawi</span><span>Medjool</span></div></div></section>
 <section id="contact" style="padding-top:0"><div class="ct rv"><div><h2>Stock Rimoku.</h2><p>Retail and wholesale enquiries welcome.</p></div><a class="btn" id="contact-wa" href="https://wa.me/447553609832" target="_blank" rel="noopener noreferrer">Enquire on WhatsApp</a></div></section>
 </main>
 <footer><span>Imported by Rimoku Ltd, info@rimoku.com, United Kingdom.</span><span>Product of Saudi Arabia · <span class="ar" style="font-family:'Noto Sans Arabic'">منتج المملكة العربية السعودية</span></span></footer>
@@ -252,7 +252,7 @@ function renderProductCards() {
 }
 const $=s=>document.querySelector(s),v=$('#v');
 document.querySelectorAll('[data-img]').forEach(i=>i.src=IMG[i.dataset.img]);
-$('#tabs').innerHTML=P.map((p,i)=>`<button class="tab" data-i="${i}" aria-label="Show ${p.en} dates"><img src="${IMG[p.k]}" alt=""><span>${p.en}<small>${p.n}${p.u.split(' ')[0]}</small></span><i class="pg"></i></button>`).join('');
+$('#tabs').innerHTML=P.map((p,i)=>`<button class="tab" data-i="${i}" aria-label="Show ${p.en} dates"><img src="${IMG[p.k]}" alt=""><span>${p.en}</span><i class="pg"></i></button>`).join('');
 const tabs=[...document.querySelectorAll('.tab')];let cur=0;
 const re=el=>{el.classList.remove('a');void el.offsetWidth;el.classList.add('a')};
 function show(i){cur=(i+P.length)%P.length;const p=P[cur];
