@@ -1328,15 +1328,29 @@
       </div>
     </section>
     <section id="sizes" style="padding-top:0">
-      <div class="rv">
-        <div class="lab">Sizes</div>
-        <h2>Seven varieties, five sizes.</h2>
-      </div>
-      <div class="sz rv"><img id="size-range-image" data-img="range" alt="Rimoku date boxes marked Sizes available on request: 500 g, 1 kg, 3 kg, 5 kg, 10 kg">
-        <div class="cap">
-          <span>Sukkari</span><span>Sukkari Rutab</span><span>Ajwa</span><span>Amber</span><span>Mabroom</span><span>Safawi</span><span>Medjool</span></div>
-      </div>
-    </section>
+  <div class="sz rv">
+    <img
+      id="size-range-image"
+      src="assets/product_poster.png"
+      alt="Rimoku date boxes marked Sizes available on request: 500 g, 1 kg, 3 kg, 5 kg, 10 kg"
+    >
+
+    <div class="cap">
+      <span>Sukkari</span>
+      <span>Sukkari Rutab</span>
+      <span>Ajwa</span>
+      <span>Amber</span>
+      <span>Mabroom</span>
+      <span>Safawi</span>
+      <span>Medjool</span>
+    </div>
+  </div>
+
+  <div class="rv" style="text-align:center; margin-top:2rem;">
+    <div class="lab">Sizes</div>
+    <h2>Seven varieties, five sizes.</h2>
+  </div>
+</section>
     <section id="contact" style="padding-top:0">
       <div class="ct rv">
         <div>
@@ -1509,7 +1523,7 @@
     enquiryForm.addEventListener('submit',e=>{e.preventDefault();const f=enquiryForm;const args=[f.querySelector('#enquiry-variety').value,f.querySelector('#enquiry-grade').value,f.querySelector('#enquiry-pack').value,validCount(f.querySelector('#enquiry-count')),f.querySelector('#enquiry-unit').value];window.open(whatsappLink(...args),'_blank','noopener,noreferrer');});
     stepperSetup(enquiryForm);
     show(0);
-    document.querySelector('#size-range-image').src=IMG.request_boxes;
+    // document.querySelector('#size-range-image').src=IMG.request_boxes;
     contactWa.href=document.querySelector('#bt').href;
     document.querySelector('#bt').addEventListener('click',()=>{contactWa.href=document.querySelector('#bt').href;});
 
